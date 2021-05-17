@@ -25,29 +25,29 @@ $bin_dll = array_unique($data);
 var_dump($bin_dll);
 
 // mkdir
-exec("mkdir .\\extra_files\\bin\\");
-exec("mkdir .\\extra_files\\etc\\php.d\\");
-exec("mkdir .\\extra_files\\lib\\php\\20180731\\");
+exec("mkdir .\\bin\\");
+exec("mkdir .\\etc\\php.d\\");
+exec("mkdir .\\lib\\php\\20180731\\");
 
 // pack
 
 // php.exe
-var_dump(copy("C:\\tools\\cygwin\\bin\\php.exe", ".\\extra_files\\bin\\php.exe"));
+var_dump(copy("C:\\tools\\cygwin\\bin\\php.exe", ".\\bin\\php.exe"));
 
 foreach ($bin_dll as $dll) {
-    exec("cp {$dll} .\\extra_files\\bin\\");
+    exec("cp {$dll} .\\bin\\");
 }
 
 // php.ini
-var_dump(copy("C:\\tools\\cygwin\\etc\\php.ini", ".\\extra_files\\etc\\php.ini"));
+var_dump(copy("C:\\tools\\cygwin\\etc\\php.ini", ".\\etc\\php.ini"));
 
-dir_copy("C:\\tools\\cygwin\\etc\\php.d", ".\\extra_files\\etc\\php.d");
-dir_copy("C:\\tools\\cygwin\\lib\\php\\20180731", ".\\extra_files\\lib\\php\\20180731");
-dir_copy("C:\\tools\\cygwin\\usr\\share\\zoneinfo", ".\\extra_files\\usr\\share\\zoneinfo");
+dir_copy("C:\\tools\\cygwin\\etc\\php.d", ".\\etc\\php.d");
+dir_copy("C:\\tools\\cygwin\\lib\\php\\20180731", ".\\lib\\php\\20180731");
+dir_copy("C:\\tools\\cygwin\\usr\\share\\zoneinfo", ".\\usr\\share\\zoneinfo");
 
-exec("ls .\\extra_files\\etc\\php.d\\", $etc);
+exec("ls .\\etc\\php.d\\", $etc);
 var_dump($etc);
-exec("ls .\\extra_files\\lib\\php\\20180731\\", $lib);
+exec("ls .\\lib\\php\\20180731\\", $lib);
 var_dump($lib);
 
 $version = getenv('VERSION');
