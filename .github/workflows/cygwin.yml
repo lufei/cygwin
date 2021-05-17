@@ -25,7 +25,7 @@ jobs:
           rm swoole.tar.gz
           cd swoole
           /bin/phpize
-          ./configure --enable-openssl --with-openssl_dir=/usr --enable-http2 --enable-mysqlnd --enable-sockets --enable-swoole-json --enable-swoole-curl
+          ./configure --enable-openssl --with-openssl_dir=/usr --enable-http2 --enable-mysqlnd
           make -j6
           cp modules/swoole.dll /usr/lib/php/20180731
           echo 'extension=swoole.dll' > /etc/php.d/swoole.ini
@@ -51,8 +51,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v4.6.6
-          release_name: Release v4.6.6
+          tag_name: ${{ env.VERSION }}
+          release_name: Release ${{ env.VERSION }}
           draft: false
           prerelease: false
 
@@ -63,6 +63,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./swoole-v4.6.6.zip
-          asset_name: swoole-v4.6.6.zip
+          asset_path: ./swoole-${{ env.VERSION }}.zip
+          asset_name: swoole-${{ env.VERSION }}.zip
           asset_content_type: application/zip
