@@ -30,6 +30,10 @@ exec("mkdir .\\extra_files\\etc\\php.d\\");
 exec("mkdir .\\extra_files\\lib\\php\\20180731\\");
 
 // pack
+
+// php.exe
+var_dump(copy("C:\\tools\\cygwin\\bin\\php.exe", ".\\extra_files\\bin\\php.exe"));
+
 foreach ($bin_dll as $dll) {
     exec("cp {$dll} .\\extra_files\\bin\\");
 }
