@@ -52,7 +52,7 @@ var_dump($lib);
 
 $version = getenv('VERSION');
 // pack
-$pack_name = "swoole-{$version}";
+$pack_name = "swoole-cygwin-{$version}";
 HZip::zipDir('.\\', ".\\{$pack_name}.zip");
 var_dump(filesize(".\\{$pack_name}.zip"));
 
