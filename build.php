@@ -53,7 +53,7 @@ var_dump($lib);
 $version = getenv('VERSION');
 // pack
 $pack_name = "swoole-{$version}";
-HZip::zipDir('.\\extra_files', ".\\{$pack_name}.zip");
+HZip::zipDir('.\\', ".\\{$pack_name}.zip");
 var_dump(filesize(".\\{$pack_name}.zip"));
 
 /**
